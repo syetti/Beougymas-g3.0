@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MChit.wav-4d534a2924225976fcbb25c2e2d2fe09.sample"
+
+[deps]
+
+source_file="res://Sound/MChit.wav"
+source_md5="6c65e67858f751975318021f752fcf1e"
+
+dest_files=[ "res://.import/MChit.wav-4d534a2924225976fcbb25c2e2d2fe09.sample" ]
+dest_md5="e52a54695a70dae9fb44be64f4cbeadc"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

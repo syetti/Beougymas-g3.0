@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/shooting flash.png-8547785072a2b0dc4e54161399747e5b.stex"
+
+[deps]
+
+source_file="res://Sprites/shooting flash.png"
+source_md5="2e2a2d2ead5c0ab57259d9c938a1c538"
+
+dest_files=[ "res://.import/shooting flash.png-8547785072a2b0dc4e54161399747e5b.stex" ]
+dest_md5="185e640b0165c1961b9942468d752f05"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

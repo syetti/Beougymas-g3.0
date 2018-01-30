@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Character script.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Main_charactersheet.tex" type="Texture" id=2]
+[ext_resource path="res://Scripts/collison.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 34.1681
+
+[node name="Tutorial Level" type="Node2D"]
+
+
+[node name="Character" type="KinematicBody2D" parent="." groups=[
+"MC",
+]]
+
+editor/display_folded = true
+position = Vector2( 120.975, 113.655 )
+input_pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0.0667572, -1.4877 )
+shapes/0/trigger = false
+collision_layer = 1
+collision_mask = 1
+collision/margin = 0.08
+script = ExtResource( 1 )
+bullet_ = null
+
+[node name="Character" type="Sprite" parent="Character"]
+
+position = Vector2( -1.08859, 2.9066 )
+scale = Vector2( 1.004, 1.00568 )
+texture = ExtResource( 2 )
+hframes = 7
+frame = 6
+
+[node name="Glow" type="Sprite" parent="Character/Character"]
+
+show_behind_parent = true
+visibility/blend_mode = 1
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 2 )
+hframes = 7
+self_modulate = Color( 0.0546875, 0, 1, 1 )
+
+[node name="Colide" type="CollisionShape2D" parent="Character"]
+
+position = Vector2( 0.0667572, -1.4877 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="Character"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = false
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Character"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+
+[connection signal="timeout"  from="Character/Timer"  to="Character" method="_on_Timer_timeout" binds=[  ]]

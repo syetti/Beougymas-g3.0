@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Possible.wav-0b60fea4bc9ce0ac01e09d3effc9cfec.sample"
+
+[deps]
+
+source_file="res://Music/Possible.wav"
+source_md5="338ca53bff0a8cd74717f1eda709e060"
+
+dest_files=[ "res://.import/Possible.wav-0b60fea4bc9ce0ac01e09d3effc9cfec.sample" ]
+dest_md5="3b7742c3e736445ced45168341efb602"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

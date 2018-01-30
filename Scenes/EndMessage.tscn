@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/GameTexures/End_frame.tex" type="Texture" id=1]
+[ext_resource path="res://Sprites/Font/SHPinscher-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Endtext.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Font/Pinscher.fnt" type="BitmapFont" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+
+[node name="Control" type="TextureRect"]
+
+focus_ignore_mouse = false
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+margin_left = 90.0
+margin_top = 323.0
+margin_right = 615.0
+margin_bottom = 442.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+anchor_left = 1
+anchor_top = 1
+anchor_right = 1
+anchor_bottom = 1
+focus_ignore_mouse = false
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+margin_left = 455.0
+margin_top = 101.0
+margin_right = 69.0
+margin_bottom = 23.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "3"
+visible_characters = -1
+percent_visible = 1.0
+script = ExtResource( 3 )
+
+[node name="Yes" type="Button" parent="."]
+
+focus_ignore_mouse = false
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+margin_left = 45.0
+margin_top = 121.0
+margin_right = 153.0
+margin_bottom = 144.0
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "YES"
+flat = false
+
+[node name="No" type="Button" parent="."]
+
+focus_ignore_mouse = false
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+margin_left = 377.0
+margin_top = 121.0
+margin_right = 485.0
+margin_bottom = 149.0
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Im Good"
+flat = false
+
+[connection signal="pressed"  from="Yes"  to="RichTextLabel" method="_on_Yes_pressed" binds=[  ]]

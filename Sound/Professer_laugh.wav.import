@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Professer_laugh.wav-9c36caa159895c28c222c268916f24fa.sample"
+
+[deps]
+
+source_file="res://Sound/Professer_laugh.wav"
+source_md5="7f589cea232c31ae9528d1563f4c4920"
+
+dest_files=[ "res://.import/Professer_laugh.wav-9c36caa159895c28c222c268916f24fa.sample" ]
+dest_md5="26777eb8d04ea1278912eb77edda6a3a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

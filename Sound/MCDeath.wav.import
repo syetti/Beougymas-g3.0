@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MCDeath.wav-3158067323ffd37b91e9488315c05502.sample"
+
+[deps]
+
+source_file="res://Sound/MCDeath.wav"
+source_md5="80c83601b0ef5c955b7bda80eb6a7d45"
+
+dest_files=[ "res://.import/MCDeath.wav-3158067323ffd37b91e9488315c05502.sample" ]
+dest_md5="ad39da953dc8faae2d97aae53993e741"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

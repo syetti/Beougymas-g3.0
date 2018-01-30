@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://white.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/opacity = 0.37
+position = Vector2( 521.635, 305.544 )
+scale = Vector2( 1, 1.0269 )
+texture = ExtResource( 1 )
+self_modulate = Color( 0.390625, 0.390625, 0.390625, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+focus_ignore_mouse = false
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+margin_left = 410.0
+margin_top = 233.0
+margin_right = 536.0
+margin_bottom = 250.0
+bbcode_enabled = true
+bbcode_text = "Aw Man, You Died"
+visible_characters = -1
+percent_visible = 1.0

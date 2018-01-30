@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Lazer.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/GameTexures/Laser.tex" type="Texture" id=2]
+[ext_resource path="res://Sprites/GameTexures/Lasergead.tex" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "Laseranim"
+length = 0.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "Laserheadanim"
+length = 0.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 5 ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+position = Vector2( -26.5151, 142.18 )
+script = ExtResource( 1 )
+
+[node name="Lazer" type="RayCast2D" parent="."]
+
+position = Vector2( 31.809, 0 )
+enabled = true
+cast_to = Vector2( 1020, 0 )
+layer_mask = 1
+type_mask = 15
+
+[node name="TArget" type="Node2D" parent="Lazer"]
+
+position = Vector2( 1022.59, 0 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="Base" type="Node2D" parent="Lazer"]
+
+position = Vector2( 0.434216, 0.168289 )
+scale = Vector2( 0.082976, 0.0714384 )
+
+[node name="Body" type="Sprite" parent="Lazer"]
+
+position = Vector2( 63.1669, 6.17287 )
+texture = ExtResource( 2 )
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lazer/Body"]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/Laseranim = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Laseranim"
+
+[node name="HEad" type="Sprite" parent="Lazer"]
+
+position = Vector2( 106.529, 3.71822 )
+texture = ExtResource( 3 )
+hframes = 5
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lazer/HEad"]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/Laserheadanim = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Laserheadanim"
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 15.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout"  from="Timer"  to="." method="_on_Timer_timeout" binds=[  ]]

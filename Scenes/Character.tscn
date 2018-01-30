@@ -1,0 +1,154 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Characterscripts/Character script.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Main_charactersheet.tex" type="Texture" id=3]
+[ext_resource path="res://Scripts/Musictimer.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/GameTexures/shooting flash.tex" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 39.6091
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 37.9163
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "Flash"
+length = 0.25
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Character" type="KinematicBody2D" groups=[
+"MC",
+]]
+
+position = Vector2( 119.975, 113.655 )
+input_pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 1.16228, -2.32454 )
+shapes/0/trigger = false
+collision_layer = 1
+collision_mask = 1
+collision/margin = 0.08
+script = ExtResource( 1 )
+bullet_ = ExtResource( 2 )
+
+[node name="Glow" type="Sprite" parent="."]
+
+show_behind_parent = true
+position = Vector2( -1.08859, 2.9066 )
+texture = ExtResource( 3 )
+hframes = 7
+self_modulate = Color( 0.280382, 0.261124, 0.613281, 1 )
+
+[node name="Character" type="Sprite" parent="."]
+
+position = Vector2( -1.08859, 2.9066 )
+scale = Vector2( 1.004, 1.00568 )
+texture = ExtResource( 3 )
+hframes = 7
+frame = 6
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+script = ExtResource( 4 )
+
+[node name="Bulletspawn" type="Position2D" parent="."]
+
+position = Vector2( 35.2101, -1.32038 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+editor/display_folded = true
+visible = false
+
+[node name="Area2D" type="Area2D" parent="Node2D" groups=[
+"MC",
+]]
+
+editor/display_folded = true
+input_pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Transform2D( 1, 0, 0, 1, 0.387436, -2.13082 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+
+position = Vector2( 0.387436, -2.13082 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visible = false
+position = Vector2( 1.16228, -2.32454 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="shootingdelay" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.12
+one_shot = false
+autostart = false
+
+[node name="Muzzle_Flash" type="Sprite" parent="."]
+
+visible = false
+position = Vector2( 55.6076, 1.58999 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 5 )
+self_modulate = Color( 0, 0, 0, 1 )
+
+[node name="Muzzle_time" type="Timer" parent="Muzzle_Flash"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = false
+
+[node name="Flash" type="AnimationPlayer" parent="Muzzle_Flash"]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/Flash = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[connection signal="timeout"  from="Timer"  to="." method="_on_Timer_timeout" binds=[  ]]
+
+[connection signal="area_entered"  from="Node2D/Area2D"  to="." method="_on_Area2D_area_enter" binds=[  ]]
+
+[connection signal="area_exited"  from="Node2D/Area2D"  to="." method="_on_Area2D_area_exit" binds=[  ]]
+
+[connection signal="timeout"  from="shootingdelay"  to="." method="_on_Timer_2_timeout" binds=[  ]]
+
+[connection signal="timeout"  from="Muzzle_Flash/Muzzle_time"  to="." method="_on_Muzzle_time_timeout" binds=[  ]]

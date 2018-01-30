@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Lit.fnt" type="BitmapFont" id=1]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+focus_ignore_mouse = false
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 740.0
+margin_bottom = 390.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Game Over
+ "
+visible_characters = -1
+percent_visible = 1.0

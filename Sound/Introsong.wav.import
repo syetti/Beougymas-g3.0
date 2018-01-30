@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Introsong.wav-c0ff3fd5d59e7104041f459bb21d243b.sample"
+
+[deps]
+
+source_file="res://Sound/Introsong.wav"
+source_md5="0b652a6cb6741e917ff7a14d8ccfb509"
+
+dest_files=[ "res://.import/Introsong.wav-c0ff3fd5d59e7104041f459bb21d243b.sample" ]
+dest_md5="123402656d997db9b374fbb699f0e46f"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
